@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Home from './Home'
-import PostForm from './PostForm'
-import Post from './Post'
+import Home from './Home';
+import PostForm from './PostForm';
+import Post from './Post';
 
 class Routes extends Component {
   constructor(props) {
@@ -11,12 +11,14 @@ class Routes extends Component {
   }
 
   render() {
-    
     return (
       <div className="Routes">
         <Switch>
-          <Route exact path="/" render={props => <Home
-                blogPosts={this.props.blogPosts}/>} />
+          <Route
+            exact
+            path="/"
+            render={props => <Home blogPosts={this.props.blogPosts} />}
+          />
 
           <Route
             exact
@@ -24,18 +26,20 @@ class Routes extends Component {
             render={props => (
               <PostForm
                 {...props}
-                post={{title:'',description:'',body:'',comments:[]}}
                 handlePost={this.props.handlePost}
+                returnHome={this.props.returnHome}
               />
             )}
           />
-           <Route
+          <Route
             exact
             path="/:id"
-            render={props => (
+            render={routerProps => (
               <Post
-                {...props}
-                blogPosts={this.props.blogPosts}
+                {...routerProps}
+                post={this.props.blogPosts.find(
+                  e => e.id === +routerProps.match.params.id
+                )}
                 handlePost={this.props.handlePost}
               />
             )}
