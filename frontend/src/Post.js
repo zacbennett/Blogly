@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostForm from './PostForm';
+import CommentBox from './CommentBox';
 
 class Post extends Component {
   constructor(props) {
@@ -14,9 +15,7 @@ class Post extends Component {
   }
 
   render() {
-    let style = {};
     let post = this.props.post;
-    console.log(post);
 
     let toShow;
 
@@ -29,15 +28,17 @@ class Post extends Component {
           <h5 className="card-title">{post.title}</h5>
           <p className="card-text">{post.description}</p>
           <p className="card-text">{post.body}</p>
+          <CommentBox
+            comments={post.comments}
+            deleteComment={this.props.deleteComment}
+            postId={post.id}
+            addComment={this.props.addComment}
+          />
         </div>
       );
     }
 
-    return (
-      <div className="PostCard card" style={style}>
-        {toShow}
-      </div>
-    );
+    return <div className="PostCard card">{toShow}</div>;
   }
 }
 

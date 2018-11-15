@@ -41,6 +41,8 @@ class Routes extends Component {
                   e => e.id === +routerProps.match.params.id
                 )}
                 handlePost={this.props.handlePost}
+                deleteComment={this.props.deleteComment}
+                addComment={this.props.addComment}
               />
             )}
           />
