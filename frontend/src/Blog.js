@@ -54,10 +54,6 @@ class Blog extends Component {
     }
   }
 
-  returnHome(evt) {
-    return this.props.history.push('/');
-  }
-
   addComment(postId, comment) {
     let post = this.state.blogPosts.find(post => post.id === postId);
     // look in comments and slice out
@@ -98,7 +94,6 @@ class Blog extends Component {
   }
 
   async componentDidMount() {
-    //needs to fetch data from backend.
     this.setState({ isLoading: false });
   }
 
