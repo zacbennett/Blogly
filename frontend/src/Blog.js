@@ -38,12 +38,12 @@ class Blog extends Component {
   async handlePost(post, type) {
     //when connecting to backend, should post to backend.
 
-    if (type === 'new') {
+    if (type === 'New') {
       this.setState({
         blogPosts: [...this.state.blogPosts, post],
         isLoading: false
       });
-    } else if (type === 'edit') {
+    } else if (type === 'Edit') {
       let idx = this.state.blogPosts.findIndex(e => e.id === post.id);
       let newState = [
         ...this.state.blogPosts.slice(0, idx),

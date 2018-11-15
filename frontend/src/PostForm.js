@@ -15,11 +15,21 @@ class PostForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   //changes state whenever search value is changed.
   handleChange(evt) {
     this.setState({ [evt.target.name]: evt.target.value });
+  }
+
+  handleCancel(){
+    if(this.props.isEdit){
+      this.props.handleShowEditForm()
+      this.props.history.push(`/${this.props.post.id}`)
+    } else{
+      this.props.history.push(`/`)
+    }
   }
 
   async handleSubmit(evt) {
@@ -31,7 +41,8 @@ class PostForm extends Component {
       body: this.state.body,
       comments: this.props.post.comments
     };
-    let editOrNew = this.props.match.url === '/new' ? 'new' : 'edit';
+
+    let editOrNew = this.props.isEdit ? 'Edit':'New';
 
     this.props.handlePost(post, editOrNew);
 
@@ -41,11 +52,16 @@ class PostForm extends Component {
       body: ''
     });
 
-    this.props.history.push('/');
+    if(this.props.isEdit){
+        this.props.handleShowEditForm()
+        this.props.history.push(`/${post.id}`) 
+    } else{
+        this.props.history.push(`/`)
+    }
   }
 
   render() {
-    let title = this.props.match.url === '/new' ? 'New Post' : 'Edit Post';
+    let title = this.props.isEdit ? 'Edit Post':'New Post';
 
     return (
       <div className="PostForm">
@@ -75,9 +91,9 @@ class PostForm extends Component {
             onChange={this.handleChange}
             value={this.state.body}
           />
-          <button>Add Post</button>
-          <button onClick={this.props.returnHome}>Cancel</button>
+          <button>{title}</button>
         </form>
+        <button onClick={this.handleCancel}>Cancel</button>
       </div>
     );
   }

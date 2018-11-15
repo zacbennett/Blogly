@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home';
-import PostForm from './PostForm';
+import NewPost from './NewPost';
 import Post from './Post';
 
 class Routes extends Component {
@@ -24,10 +24,9 @@ class Routes extends Component {
             exact
             path="/new"
             render={props => (
-              <PostForm
+              <NewPost
                 {...props}
                 handlePost={this.props.handlePost}
-                returnHome={this.props.returnHome}
               />
             )}
           />
@@ -38,7 +37,7 @@ class Routes extends Component {
               <Post
                 {...routerProps}
                 post={this.props.blogPosts.find(
-                  e => e.id === +routerProps.match.params.id
+                  e => e.id.toString() === routerProps.match.params.id.toString()
                 )}
                 handlePost={this.props.handlePost}
                 deleteComment={this.props.deleteComment}

@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import PostCard from './PostCard'
+import TitleList from './TitleList'
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
-    let postList = this.props.blogPosts.map(e=>(
-        <PostCard title={e.title} description={e.description} id={e.id}/>
-    ))
-    
+   
     return (
       <div className="Home">
        Welcome to <b>Microblog</b>
-       {postList}
+       <TitleList blogPosts={this.props.blogPosts} />
       </div>
     );
   }
