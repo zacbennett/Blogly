@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Home from './Home';
-import NewPost from './NewPost';
-import Post from './Post';
+import Home from '../Containers/Home';
+import NewPost from '../Containers/NewPost';
+import Post from '../Containers/Post';
 
 class Routes extends Component {
   constructor(props) {

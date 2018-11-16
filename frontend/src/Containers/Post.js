@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DispPost from './DispPost';
+import DispPost from '../Components/DispPost';
 import { connect } from 'react-redux';
 import { addComment,deleteComment,handlePost } from './actionCreators';
 

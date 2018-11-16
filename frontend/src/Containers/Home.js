@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TitleList from './TitleList'
+import TitleList from '../Components/TitleList'
 import {connect} from 'react-redux'
 
 class Home extends Component {
