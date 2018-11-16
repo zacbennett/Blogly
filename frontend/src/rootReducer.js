@@ -1,15 +1,15 @@
 import { ADD_COMMENT, DELETE_COMMENT, HANDLE_POST } from './actionTypes';
 
 function rootReducer(state = {  blogPosts: {
-  1:{
-    id: 1,
+  '1':{
+    id: '1',
     title: 'test',
     description: 'desc test',
     body: 'body test',
     comments: []
   },
-  2: {
-    id: 2,
+  '2': {
+    id: '2',
     title: 'testsdf',
     description: 'desc testsadf',
     body: 'body testdsaf',
@@ -21,16 +21,24 @@ function rootReducer(state = {  blogPosts: {
   }
 }},action) {
 
-
   console.log('reducer ran; state & action:', state, action);
+
+  let newState;
 
   switch (action.type) {
     case HANDLE_POST:
-      return {...state.blogPosts, ...action.newPost};
+      return {blogPosts:{...state.blogPosts, ...action.newPost}};
     
+    case DELETE_COMMENT:
+      let newPost = state.blogPosts[action.postId] 
+      let newComments = newPost.comments.filter(e=>e.id!==action.commentId)
+      newPost.comments = newComments
+      return {blogPosts:{...state.blogPosts,[newPost.id]:{...newPost}}};
 
-    case REMOVE_TODO:
-      return { todos: state.todos.filter(todo => todo.id !== action.id) };
+    case ADD_COMMENT:
+      newState = {...state.blogPosts}  
+      newState[action.postId].comments.push(action.comment)
+      return {blogPosts:{...newState}};
 
     default:
       return state;

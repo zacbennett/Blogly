@@ -1,5 +1,5 @@
 import { ADD_COMMENT, DELETE_COMMENT, HANDLE_POST } from './actionTypes';
-import uuid from 'uuid/v4';
+
 export function addComment(postId, comment) {
   return { type: ADD_COMMENT, postId, comment };
 }
@@ -9,14 +9,16 @@ export function deleteComment(postId, commentId) {
 }
 
 export function handlePost(post, postType) {
-  let newPost;
 
+  let newPost;
+  
   if (postType === 'New') {
-    let newId = uuid();
+    let newId = post.id;
     newPost = { [newId]: post };
   } else if (postType === 'Edit') {
     newPost = { [post.id]: post };
+
   }
 
-  return { type: HANDLE_POST, newPost, postType };
+  return { type: HANDLE_POST, newPost};
 }

@@ -17,7 +17,7 @@ class Routes extends Component {
           <Route
             exact
             path="/"
-            render={props => <Home blogPosts={this.props.blogPosts} />}
+            render={props => <Home />}
           />
 
           <Route
@@ -26,7 +26,6 @@ class Routes extends Component {
             render={props => (
               <NewPost
                 {...props}
-                handlePost={this.props.handlePost}
               />
             )}
           />
@@ -36,12 +35,6 @@ class Routes extends Component {
             render={routerProps => (
               <Post
                 {...routerProps}
-                post={this.props.blogPosts.find(
-                  e => e.id.toString() === routerProps.match.params.id.toString()
-                )}
-                handlePost={this.props.handlePost}
-                deleteComment={this.props.deleteComment}
-                addComment={this.props.addComment}
               />
             )}
           />

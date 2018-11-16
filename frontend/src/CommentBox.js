@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
+import uuid from 'uuid/v4'
 
 class CommentBox extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { text: '' };
-
+    this.state = { text: '',id:'' };
     this.handleAddComment = this.handleAddComment.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -17,7 +16,9 @@ class CommentBox extends Component {
 
   handleAddComment(evt) {
     evt.preventDefault();
-    this.props.addComment(this.props.postId, this.state);
+    let newComment = this.state
+    newComment.id=uuid()
+    this.props.addComment(this.props.postId, newComment);
     this.setState({ text: '' });
   }
 

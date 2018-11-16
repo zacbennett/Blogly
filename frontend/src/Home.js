@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TitleList from './TitleList'
+import {connect} from 'react-redux'
 
 class Home extends Component {
   render() {
@@ -13,4 +14,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapStateToProps(state){
+  return {blogPosts:state.blogPosts}
+}
+
+const connectedComponent = connect(mapStateToProps);
+
+export default connectedComponent(Home);

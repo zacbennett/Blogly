@@ -4,9 +4,12 @@ import PostCard from './PostCard'
 class TitleList extends Component {
   
   render() {
-    let postList = this.props.blogPosts.map(e=>(
-        <PostCard title={e.title} description={e.description} id={e.id}/>
-    ))
+    let postList=[];
+
+    for(let post in this.props.blogPosts){
+        let singlePost = this.props.blogPosts[post]
+        postList.push(<PostCard title={singlePost.title} description={singlePost.description} id={singlePost.id}/>)
+    }
     
     return (
       <div className="TitleList">

@@ -15,12 +15,13 @@ class DispPost extends Component {
   }
 
   render() {
+
     let post = this.props.post;
 
     let toShow;
 
     if (this.state.isEditing) {
-      toShow = <PostForm {...this.props} post={post} isEdit={true} handleShowEditForm={this.handleShowEditForm}/>;
+      toShow = <PostForm {...this.props} isEdit={true} handleShowEditForm={this.handleShowEditForm}/>;
     } else {
       toShow = (
         <div className="card-body">

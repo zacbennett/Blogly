@@ -30,7 +30,6 @@ class Blog extends Component {
       ]
     };
     this.handlePost = this.handlePost.bind(this);
-    this.returnHome = this.returnHome.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
     this.addComment = this.addComment.bind(this);
   }

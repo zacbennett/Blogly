@@ -43,7 +43,7 @@ class PostForm extends Component {
     };
 
     let editOrNew = this.props.isEdit ? 'Edit':'New';
-
+    
     this.props.handlePost(post, editOrNew);
 
     this.setState({
