@@ -10,12 +10,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
-const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(thunk)
-  )
-);
+const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
