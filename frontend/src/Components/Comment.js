@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Comment.css'
 
 class Comment extends Component {
   constructor(props) {
@@ -17,10 +18,12 @@ class Comment extends Component {
       <div className="Comment card">
         <button
           onClick={this.handleDeleteComment}
+          className="delete-comment-button"
         >
           X
         </button>
-        {this.props.text}
+       <p> {this.props.text}</p>
+
       </div>
     );
   }

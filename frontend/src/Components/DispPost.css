@@ -1,0 +1,12 @@
+.card-body{
+  display:flex;
+  flex-direction: column
+}
+.card-head{
+  display:flex;
+  justify-content: space-between
+}
+
+.body, .desc{
+  text-align: left;
+}

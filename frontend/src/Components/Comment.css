@@ -1,0 +1,14 @@
+.delete-comment-button{
+  width:2%;
+  position: absolute;
+  right: 0;
+}
+
+.card > p{
+  width: 85%;
+  margin: 0 auto;
+  text-align: left;
+}
+.card{
+  min-height: 45px;
+}
