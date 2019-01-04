@@ -8,7 +8,7 @@ Blogly was an exercise to get familiar with utilizing React and Redux. Specifica
 - Components using the Redux store include Home, NewPost (form), Post
 
 ## Check It Out
-<img src="https://www.zacbennett.io/BloglyHomePage.png"></img>
+<img src="https://www.zacbennett.io/assets/BloglyHomePage.png"></img>
 https://fervent-villani-34a204.netlify.com
 ---
 
