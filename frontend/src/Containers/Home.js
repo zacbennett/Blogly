@@ -7,7 +7,15 @@ class Home extends Component {
    
     return (
       <div className="Home">
+      <div>
+      <p>
        Welcome to <b>Microblog</b>
+       </p>
+       </div>
+       <div>
+       <i>Get in the Rithm of blogging!</i>
+       </div>
+
        <TitleList blogPosts={this.props.blogPosts} />
       </div>
     );

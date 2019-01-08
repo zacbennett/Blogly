@@ -3,8 +3,8 @@ import { ADD_COMMENT, DELETE_COMMENT, HANDLE_POST } from './actionTypes';
 function rootReducer(state = {  blogPosts: {
   '1':{
     id: '1',
-    title: 'I like pasta',
-    description: 'How much I love pasta',
+    title: 'Spaghetti and Meatballs Recipe',
+    description: 'Make Spaghetti and Meatballs in 5 Minutes!',
     body: `Delicious pasta sorprese al dente, pasta sauce capellini cavatelli ravioli sauce tortellini spaghettini. Spaghetti tortellini ziti fettuccine, ravioli rotelle fettuccine tortellini tomatoes tomatoes sauce basil. Rotelle rotelle rotelle, pasta ziti lasagna pasta macaroni lasagna cavatelli sauce.
     Lasagna vermicelli al dente cheesy spaghetti ziti, spaghettini angel hair fiorentine sorprese sorprese. Anelli ditalini fettuccine ditalini cheesy fiorentine cheesy, sauce cheesy ravioli pasta tripoline. Tripoline tomatoes spaghettini tomatoes sauce fiorentine, linguini basil anelli penne rotelle. Angel hair carbonara angel hair, sorprese ditalini macaroni al dente ziti tripoline cavatelli. Macaroni al dente cavatelli lasagna fiorentine rotelle rotelle tortellini.`,
     comments: [{id: 1, text: 'Well done, sir!'}]

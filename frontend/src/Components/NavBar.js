@@ -11,9 +11,7 @@ class NavBar extends Component {
             <div className="navbar-nav">
                 <div>
                     MicroBlog
-                    <br></br>
-                    Get in the Rithm of blogging!
-                    <br></br>
+                    
                 </div>
                 <div>
                     <NavLink to="/"><b>Blog</b></NavLink>
